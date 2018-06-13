@@ -1,0 +1,59 @@
+First Order Logic Translation:
+all x (wizard(x) -> hogwarts(x)).
+all x (muggle(x) -> utd(x)).
+all x (muggle(x) -> loves(x, ai)).
+all x (wizard(x) & loves(ginny, x) -> quidditch(x)). 
+all x (wizard(x) & -study(x) -> -pass(x)).
+all x (wizard(x) & -pass(x) -> -play(x)).
+all x (wizard(x) & - play(x) -> -quidditch(x)). 
+all x (muggle(x) -> -play(x)).
+all x (utd(x) -> good(x)).
+all x (wizard(x) -> magic(x)).
+all x (muggle(x) -> -magic(x)).
+all x( magic(x) -> -muggle(x)).
+all x exists y (kills(x, y) & wizard(y) -> all z (wizard(z) & hates(z, x))). 
+all x all y (hates(y, x) & wizard(y) -> evil(x)).
+all x (evil(x) -> scared(x, dumbledore)).
+all x (wizard(x) -> hates(x, voldemort)). 
+all x all y (father(x, y) -> loves(x,y)). 
+all x all y (mother(x, y) -> loves(x,y)). 
+father(james, harry).
+mother(lily, harry).
+wizard(dumbledore).
+wizard(harry).
+wizard(voldemort).
+wizard(james). 
+wizard(lily).
+wizard(ron).
+kills(voldemort, james).
+kills(voldemort, lily).
+
+Clause Normal Form Translation:
+-wizard(x) | hogwarts(x).
+-muggle(x) | utd(x).
+-muggle(x) | loves(x,ai).
+-wizard(x) | -loves(ginny,x) | quidditch(x).
+-wizard(x) | study(x) | -pass(x).
+-wizard(x) | pass(x) | -play(x).
+-wizard(x) | play(x) | -quidditch(x).
+-muggle(x) | -play(x).
+-utd(x) | good(x).
+-wizard(x) | magic(x).
+-muggle(x) | -magic(x).
+-magic(x) | -muggle(x).
+-kills(x,f1(x)) | -wizard(f1(x)) | wizard(y).
+-kills(x,f1(x)) | -wizard(f1(x)) | hates(y,x).
+-hates(x,y) | -wizard(x) | evil(y).
+-evil(x) | scared(x,dumbledore).
+-wizard(x) | hates(x,voldemort).
+-father(x,y) | loves(x,y). -mother(x,y) | loves(x,y).
+father(james,harry).
+mother(lily,harry).
+wizard(dumbledore).
+wizard(harry).
+wizard(x).
+wizard(james).
+wizard(lily).
+wizard(ron).
+kills(voldemort,james).
+kills(voldemort,lily).
